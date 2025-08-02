@@ -1,5 +1,4 @@
-A 16bit verilog processor I am working on to become proficient in verilog and computer architecture.
-
+16 Bit CPU Documentation
 
 1.	Instruction format
 
@@ -178,17 +177,17 @@ a.	mem[A] <= reg_data2 only if write_en is active and opcode is STORE
 The CPU is the top module that integrates all these modules and executes the program in instruction memory module. The only inputs to this module are the clk and reset. It drives the entire datapath.
 ________________________________________
 Key Responsibilities:
-•	Instruction Fetch: Reads instructions sequentially from the Instruction Memory module using the Program Counter.
-•	Instruction Decode: Extracts fields such as opcode, source/destination registers, and immediate flags.
-•	Control Logic:
-o	Decides whether an instruction uses immediate values or register operands.
-o	Detects load and store operations.
-o	Controls data path direction for memory access and ALU operations.
-•	Register File Access:
-o	Reads register values based on decoded instruction fields (sr1, sr2).
-o	Writes back results to destination register (dr) unless it's register R0 (which is reserved).
-•	ALU Operations: Executes arithmetic or logical operations based on the opcode.
-•	Memory Access:
-o	For store, it sends data from the register file to the Data_MEM module at the address specified by a register.
-o	For load, it fetches data from memory and writes it back to the destination register.
-•	Write-Back: Stores the final result (from ALU or memory) back to the appropriate register.
+1.	Instruction Fetch: Reads instructions sequentially from the Instruction Memory module using the Program Counter.
+2.	Instruction Decode: Extracts fields such as opcode, source/destination registers, and immediate flags.
+3.	Control Logic:
+a.	Decides whether an instruction uses immediate values or register operands.
+b.	Detects load and store operations.
+c.	Controls data path direction for memory access and ALU operations.
+4.	Register File Access:
+a.	Reads register values based on decoded instruction fields (sr1, sr2).
+b.	Writes back results to destination register (dr) unless it's register R0 (which is reserved).
+5.	ALU Operations: Executes arithmetic or logical operations based on the opcode.
+6.	Memory Access:
+a.	For store, it sends data from the register file to the Data_MEM module at the address specified by a register.
+b.	For load, it fetches data from memory and writes it back to the destination register.
+7.	Write-Back: Stores the final result (from ALU or memory) back to the appropriate register.
